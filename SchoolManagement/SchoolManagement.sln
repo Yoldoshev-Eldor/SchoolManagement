@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35931.197
@@ -7,7 +6,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagement.Server", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagement.Repository", "SchoolManagement.Repository\SchoolManagement.Repository.csproj", "{5305553A-E202-4EA0-B7C8-3C8D911ACF94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagement.DataAccess", "SchoolManagement.DataAccess\SchoolManagement.DataAccess.csproj", "{708DF8B5-A196-4639-9577-E972507D6F5B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagement.DataAccess", "SchoolManagement.DataAccess\SchoolManagement.DataAccess.csproj", "{5F770929-4757-4A72-B594-16F09C0803E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagement.Service", "SchoolManagement.Service\SchoolManagement.Service.csproj", "{3D381572-6821-453A-9E82-FDBAE67D6D6D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManager.Service", "SchoolManager.Service\SchoolManager.Service.csproj", "{43918D3B-21EB-4680-B9B1-D6D25CE171BC}"
 EndProject
@@ -33,6 +34,7 @@ Global
 		{43918D3B-21EB-4680-B9B1-D6D25CE171BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43918D3B-21EB-4680-B9B1-D6D25CE171BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43918D3B-21EB-4680-B9B1-D6D25CE171BC}.Release|Any CPU.Build.0 = Release|Any CPU
+
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
