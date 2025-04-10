@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SchoolManagement.DataAccess.Entities
 {
-    internal class School
+    internal class Class
     {
     }
 }
