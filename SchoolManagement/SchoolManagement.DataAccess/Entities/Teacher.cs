@@ -14,6 +14,6 @@ public class Teacher
     public int Age { get; set; }
     public string Subject { get; set; }
 
-    public ICollection<TeacherStudent> Students { get; set; }
-    public ICollection<TeacherClass> Classes { get; set; }
+    public ICollection<TeacherStudent> TeacherStudents { get; set; }
+    public ICollection<TeacherClass> TeacherClasses { get; set; }
 }
