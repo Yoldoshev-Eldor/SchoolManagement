@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,4 +17,3 @@ public class Student
     public ICollection<TeacherStudent> Teachers { get; set; }
     public ICollection<StudentClass> Classes { get; set; }
 }
-
