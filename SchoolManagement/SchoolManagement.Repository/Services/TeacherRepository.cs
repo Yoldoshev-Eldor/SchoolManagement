@@ -33,16 +33,16 @@ public class TeacherRepository : ITeacherRepository
         await mainContext.SaveChangesAsync();
     }
 
-    public async Task<List<Teacher>> GetAllTeachersAsync(bool includeStudents = false, bool includeClasses = false)
+    public async Task<ICollection<Teacher>> GetAllTeachersAsync(bool includeStudents = false, bool includeClasses = false)
     {
         IQueryable<Teacher> query = mainContext.Teachers;
         if (includeStudents)
         {
-            query = query.Include(t => t.Students);
+            query = query.Include(t => t.TeacherStudents);
         }
         if (includeClasses)
         {
-            query = query.Include(t => t.Classes);
+            query = query.Include(t => t.TeacherClasses);
         }
 
         return await query.ToListAsync();
