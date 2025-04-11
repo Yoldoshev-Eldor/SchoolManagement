@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SchoolManagement.DataAccess;
 using SchoolManagement.DataAccess.Entities;
+using SchoolManagement.DataAccess.Helpers;
 
 namespace SchoolManagement.Repository.Services;
 
@@ -32,20 +33,24 @@ public class TeacherRepository : ITeacherRepository
         mainContext.Teachers.Remove(teacher);
         await mainContext.SaveChangesAsync();
     }
-
-    public async Task<ICollection<Teacher>> GetAllTeachersAsync(bool includeStudents = false, bool includeClasses = false)
+    public async Task<PaginatedList<Teacher>> GetPaginatedTeachersAsync(
+        int pageNumber, int pageSize,
+        bool includeStudents = false,
+        bool includeClasses = false)
     {
         IQueryable<Teacher> query = mainContext.Teachers;
+
         if (includeStudents)
         {
             query = query.Include(t => t.TeacherStudents);
         }
+
         if (includeClasses)
         {
             query = query.Include(t => t.TeacherClasses);
         }
 
-        return await query.ToListAsync();
+        return await PaginatedList<Teacher>.CreateAsync(query, pageNumber, pageSize);
     }
 
     public async Task<Teacher> GetTeacherByIdAsync(int teacherId)
@@ -65,7 +70,7 @@ public class TeacherRepository : ITeacherRepository
         {
             throw new Exception("Teacher not found");
         }
-        
+
         mainContext.Teachers.Update(teacher);
         await mainContext.SaveChangesAsync();
     }
