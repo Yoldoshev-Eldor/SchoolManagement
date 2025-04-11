@@ -65,13 +65,8 @@ public class TeacherRepository : ITeacherRepository
         {
             throw new Exception("Teacher not found");
         }
-        existingTeacher.FirstName = teacher.FirstName;
-        existingTeacher.LastName = teacher.LastName;
-        existingTeacher.Age = teacher.Age;
-        existingTeacher.Subject = teacher.Subject;
-        existingTeacher.Students = teacher.Students;
-        existingTeacher.Classes = teacher.Classes;
-        mainContext.Teachers.Update(existingTeacher);
+        
+        mainContext.Teachers.Update(teacher);
         await mainContext.SaveChangesAsync();
     }
 }
