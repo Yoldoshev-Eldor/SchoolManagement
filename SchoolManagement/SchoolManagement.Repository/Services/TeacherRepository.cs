@@ -33,16 +33,16 @@ public class TeacherRepository : ITeacherRepository
         await mainContext.SaveChangesAsync();
     }
 
-    public async Task<List<Teacher>> GetAllTeachersAsync(bool includeStudents = false, bool includeClasses = false)
+    public async Task<ICollection<Teacher>> GetAllTeachersAsync(bool includeStudents = false, bool includeClasses = false)
     {
         IQueryable<Teacher> query = mainContext.Teachers;
         if (includeStudents)
         {
-            query = query.Include(t => t.Students);
+            query = query.Include(t => t.TeacherStudents);
         }
         if (includeClasses)
         {
-            query = query.Include(t => t.Classes);
+            query = query.Include(t => t.TeacherClasses);
         }
 
         return await query.ToListAsync();
@@ -65,13 +65,8 @@ public class TeacherRepository : ITeacherRepository
         {
             throw new Exception("Teacher not found");
         }
-        existingTeacher.FirstName = teacher.FirstName;
-        existingTeacher.LastName = teacher.LastName;
-        existingTeacher.Age = teacher.Age;
-        existingTeacher.Subject = teacher.Subject;
-        existingTeacher.Students = teacher.Students;
-        existingTeacher.Classes = teacher.Classes;
-        mainContext.Teachers.Update(existingTeacher);
+        
+        mainContext.Teachers.Update(teacher);
         await mainContext.SaveChangesAsync();
     }
 }
