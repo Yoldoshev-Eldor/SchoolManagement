@@ -8,10 +8,9 @@ namespace SchoolManagement.DataAccess.Entities;
 
 public class TeacherClass
 {
-    public int? TeacherID { get; set; }
+    public int TeacherID { get; set; }
     public Teacher Teacher { get; set; }
 
-    public int? ClassID { get; set; }
+    public int ClassID { get; set; }
     public Class Class { get; set; }
 }
-

@@ -11,7 +11,7 @@ public class Class
     public int ClassID { get; set; }
     public string ClassName { get; set; }
 
-    public ICollection<StudentClass> Students { get; set; }
-    public ICollection<TeacherClass> Teachers { get; set; }
+    public ICollection<StudentClass> ClassStudents { get; set; }
+    public ICollection<TeacherClass> ClassTeachers { get; set; }
 }
 
